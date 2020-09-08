@@ -5,7 +5,7 @@ import com.rps.weapon.Weapon;
 public class Player {
     private String name;
     private int wins = 0;
-    private Weapon choosedWeapon;
+    private Weapon chosenWeapon;
 
     public void addPoint() {
         this.wins++;
@@ -27,12 +27,12 @@ public class Player {
         this.wins = wins;
     }
 
-    public Weapon getChoosedWeapon() {
-        return choosedWeapon;
+    public Weapon getChosenWeapon() {
+        return chosenWeapon;
     }
 
-    public void setChoosedWeapon(Weapon choosedWeapon) {
-        this.choosedWeapon = choosedWeapon;
+    public void setChosenWeapon(Weapon chosenWeapon) {
+        this.chosenWeapon = chosenWeapon;
     }
 
 }

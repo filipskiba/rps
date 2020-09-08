@@ -11,7 +11,7 @@ public class GameController {
     Weapon lizard = new Weapon("Lizard");
     Weapon spock = new Weapon("Spock");
 
-    private Weapon choosedWeapon;
+    private Weapon chosenWeapon;
 
     public void setRules() {
         rock.addWeakness(paper);
@@ -46,38 +46,38 @@ public class GameController {
 
         switch (option) {
             case 1:
-                choosedWeapon = rock;
+                chosenWeapon = rock;
                 break;
             case 2:
-                choosedWeapon = paper;
+                chosenWeapon = paper;
                 break;
             case 3:
-                choosedWeapon = scissors;
+                chosenWeapon = scissors;
                 break;
             case 4:
-                choosedWeapon = spock;
+                chosenWeapon = spock;
                 break;
             case 5:
-                choosedWeapon = lizard;
+                chosenWeapon = lizard;
                 break;
         }
-        return choosedWeapon;
+        return chosenWeapon;
 
     }
 
     public Player fight(Player player1, Player player2) {
 
-        if (player1.getChoosedWeapon().equals(player2.getChoosedWeapon())) {
+        if (player1.getChosenWeapon().equals(player2.getChosenWeapon())) {
             System.out.println("Draw");
             return null;
         } else {
-            if (player1.getChoosedWeapon().getWeakness().contains(player2.getChoosedWeapon())) {
+            if (player1.getChosenWeapon().getWeakness().contains(player2.getChosenWeapon())) {
                 player2.addPoint();
-                System.out.println(player1.getChoosedWeapon().getLoseMessage(player2.getChoosedWeapon()));
+                System.out.println(player1.getChosenWeapon().getLoseMessage(player2.getChosenWeapon()));
                 return player2;
             } else {
                 player1.addPoint();
-                System.out.println(player2.getChoosedWeapon().getLoseMessage(player1.getChoosedWeapon()));
+                System.out.println(player2.getChosenWeapon().getLoseMessage(player1.getChosenWeapon()));
                 return player1;
             }
         }

@@ -14,15 +14,15 @@ public class Menu {
     Player player2 = new Player();
     GameController gameController = new GameController();
 
-    Scanner scaner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
 
     public void mainMenu() {
         System.out.println("Menu:");
         System.out.println("1 - Play");
         System.out.println("2 - Exit");
 
-        while (!scaner.hasNextInt()) scaner.next();
-        int option = scaner.nextInt();
+        while (!scanner.hasNextInt()) scanner.next();
+        int option = scanner.nextInt();
 
         switch (option) {
             case 1:
@@ -30,14 +30,14 @@ public class Menu {
                 break;
             case 2:
                 System.out.println("Game over");
-                scaner.close();
+                scanner.close();
                 break;
         }
     }
 
     public void repeatGame() {
         System.out.println("Game over. Do you want to repeat? Y/N?");
-        String repeat = scaner.next();
+        String repeat = scanner.next();
         if (repeat.toLowerCase().equals("y")) {
             player1.setWins(0);
             player2.setWins(0);
@@ -52,13 +52,13 @@ public class Menu {
 
     public void round() {
         System.out.println("Enter your name: ");
-        player1.setName(scaner.next());
+        player1.setName(scanner.next());
         player2.setName("Cpu");
         System.out.print("Welcome " + player1.getName() + "\n");
 
         System.out.println("Select the number of rounds: ");
-        while (!scaner.hasNextInt()) scaner.next();
-        rounds = scaner.nextInt();
+        while (!scanner.hasNextInt()) scanner.next();
+        rounds = scanner.nextInt();
 
         do {
             System.out.println("****************************************************");
@@ -72,18 +72,18 @@ public class Menu {
         roundCounter = 0;
         rounds = 0;
         repeatGame();
-        scaner.close();
+        scanner.close();
     }
 
     public void battle() {
         Random cpuChoose = new Random();
-        while (!scaner.hasNextInt()) scaner.next();
-        int choice = scaner.nextInt();
+        while (!scanner.hasNextInt()) scanner.next();
+        int choice = scanner.nextInt();
         if (choice > 0 && choice < 6) {
-            player1.setChoosedWeapon(gameController.chooseWeapon(choice));
-            player2.setChoosedWeapon(gameController.chooseWeapon(cpuChoose.nextInt(4) + 1));
-            System.out.println(player1.getName() + " : " + player1.getChoosedWeapon().toString() + " , "
-                    + player2.getName() + " : " + player2.getChoosedWeapon().toString());
+            player1.setChosenWeapon(gameController.chooseWeapon(choice));
+            player2.setChosenWeapon(gameController.chooseWeapon(cpuChoose.nextInt(4) + 1));
+            System.out.println(player1.getName() + " : " + player1.getChosenWeapon().toString() + " , "
+                    + player2.getName() + " : " + player2.getChosenWeapon().toString());
             gameController.fight(player1, player2);
             System.out.println("******************Results****************************");
             System.out.println(player1.getName() + ": " + player1.getWins());
